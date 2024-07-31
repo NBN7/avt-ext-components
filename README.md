@@ -12,6 +12,8 @@ Para copiar uno de estos componentes en tu repositorio, ejecutá el siguiente co
 npx -p avt-ext-componentes nombre_del_componente
 ```
 
+Este comando no solo copia y pega el componente sino que tambien instala las dependencias necesarias del mismo ;)
+
 ## Componentes
 
 Los componentes estan basados en [shadcn](https://ui.shadcn.com/), por lo que toda la documentacion de cada uno de los componentes está en su página web.
