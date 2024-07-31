@@ -5,6 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import readline from "readline";
 import chalk from "chalk";
+import { exec } from "child_process";
 
 // get the filename of the current module
 const __filename = fileURLToPath(import.meta.url);
@@ -60,6 +61,16 @@ async function installDialogComponent() {
     await fs.copyFile(sourcePath, targetComponentPath);
 
     console.log(chalk.green("\nDone! Dialog component installed.\n"));
+
+    // install additional dependencies
+    exec("npm install @radix-ui/react-dialog", (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error installing dependencies: ${error}`);
+        return;
+      }
+      console.log(stdout);
+      console.error(stderr);
+    });
   } catch (error) {
     console.error(chalk.red("\nError installing dialog component:", error));
   } finally {

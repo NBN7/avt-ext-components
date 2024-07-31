@@ -2,7 +2,7 @@
 
 ## Descripción
 
-En este repo se encuentran todos los componentes que podemos utilizar para crear las extensiones en Auravant.
+En este repo se encuentran todos los componentes que podemos utilizar para crear las extensiones en Auravant. Además incluye un CLI para instalarlos directamente en tu repositorio!
 
 ## Uso
 
