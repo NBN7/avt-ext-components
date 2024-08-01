@@ -4,7 +4,7 @@ import fs from "fs-extra";
 import path from "path";
 import { fileURLToPath } from "url";
 import readline from "readline";
-import chalk from "chalk";
+import chalk from "";
 import { exec } from "child_process";
 
 // get the filename of the current module
@@ -43,14 +43,18 @@ async function installTooltipComponent() {
     if (fs.existsSync(targetComponentPath)) {
       // ask the user to overwrite the component
       const answer = await askQuestion(
-        `${chalk.white("\nComponent tooltip already exists.")} ${chalk.green(
-          "Would you like to overwrite?"
-        )} ${chalk.gray("» (y/N): ")}`
+        `${chalk.whiteBright(
+          "\nComponent tooltip already exists."
+        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
+          "» (y/N): "
+        )}`
       );
 
       if (answer.toLowerCase() !== "y") {
         console.log(
-          chalk.blue("Skipped tooltip. To overwrite, run the command again.\n")
+          chalk.blueBright(
+            "Skipped tooltip. To overwrite, run the command again.\n"
+          )
         );
         rl.close();
         return;
@@ -63,7 +67,7 @@ async function installTooltipComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.green("\nDone! Tooltip component installed.\n"));
+    console.log(chalk.greenBright("\nDone! Tooltip component installed.\n"));
 
     // install additional dependencies
     exec("npm install @radix-ui/react-tooltip", (error, stdout, stderr) => {
@@ -75,7 +79,9 @@ async function installTooltipComponent() {
       console.error(stderr);
     });
   } catch (error) {
-    console.error(chalk.red("\nError installing tooltip component:", error));
+    console.error(
+      chalk.redBright("\nError installing tooltip component:", error)
+    );
   } finally {
     rl.close();
   }

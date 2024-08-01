@@ -43,14 +43,16 @@ async function installSeparatorComponent() {
     if (fs.existsSync(targetComponentPath)) {
       // ask the user to overwrite the component
       const answer = await askQuestion(
-        `${chalk.white("\nComponent separator already exists.")} ${chalk.green(
-          "Would you like to overwrite?"
-        )} ${chalk.gray("» (y/N): ")}`
+        `${chalk.whiteBright(
+          "\nComponent separator already exists."
+        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
+          "» (y/N): "
+        )}`
       );
 
       if (answer.toLowerCase() !== "y") {
         console.log(
-          chalk.blue(
+          chalk.blueBright(
             "Skipped separator. To overwrite, run the command again.\n"
           )
         );
@@ -65,7 +67,7 @@ async function installSeparatorComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.green("\nDone! Separator component installed.\n"));
+    console.log(chalk.greenBright("\nDone! Separator component installed.\n"));
 
     // install additional dependencies
     exec("npm install @radix-ui/react-separator", (error, stdout, stderr) => {
@@ -77,7 +79,9 @@ async function installSeparatorComponent() {
       console.error(stderr);
     });
   } catch (error) {
-    console.error(chalk.red("\nError installing separator component:", error));
+    console.error(
+      chalk.redBright("\nError installing separator component:", error)
+    );
   } finally {
     rl.close();
   }

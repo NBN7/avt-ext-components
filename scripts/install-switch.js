@@ -40,14 +40,18 @@ async function installSwitchComponent() {
     if (fs.existsSync(targetComponentPath)) {
       // ask the user to overwrite the component
       const answer = await askQuestion(
-        `${chalk.white("\nComponent switch already exists.")} ${chalk.green(
-          "Would you like to overwrite?"
-        )} ${chalk.gray("» (y/N): ")}`
+        `${chalk.whiteBright(
+          "\nComponent switch already exists."
+        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
+          "» (y/N): "
+        )}`
       );
 
       if (answer.toLowerCase() !== "y") {
         console.log(
-          chalk.blue("Skipped switch. To overwrite, run the command again.\n")
+          chalk.blueBright(
+            "Skipped switch. To overwrite, run the command again.\n"
+          )
         );
         rl.close();
         return;
@@ -60,7 +64,7 @@ async function installSwitchComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.green("\nDone! Switch component installed.\n"));
+    console.log(chalk.greenBright("\nDone! Switch component installed.\n"));
 
     // install additional dependencies
     exec("npm install @radix-ui/react-switch", (error, stdout, stderr) => {
@@ -72,7 +76,9 @@ async function installSwitchComponent() {
       console.error(stderr);
     });
   } catch (error) {
-    console.error(chalk.red("\nError installing switch component:", error));
+    console.error(
+      chalk.redBright("\nError installing switch component:", error)
+    );
   } finally {
     rl.close();
   }

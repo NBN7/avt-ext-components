@@ -42,14 +42,18 @@ async function installTextareaComponent() {
     if (fs.existsSync(targetComponentPath)) {
       // ask the user to overwrite the component
       const answer = await askQuestion(
-        `${chalk.white("\nComponent textarea already exists.")} ${chalk.green(
-          "Would you like to overwrite?"
-        )} ${chalk.gray("» (y/N): ")}`
+        `${chalk.whiteBright(
+          "\nComponent textarea already exists."
+        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
+          "» (y/N): "
+        )}`
       );
 
       if (answer.toLowerCase() !== "y") {
         console.log(
-          chalk.blue("Skipped textarea. To overwrite, run the command again.\n")
+          chalk.blueBright(
+            "Skipped textarea. To overwrite, run the command again.\n"
+          )
         );
         rl.close();
         return;
@@ -62,9 +66,11 @@ async function installTextareaComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.green("\nDone! Textarea component installed.\n"));
+    console.log(chalk.greenBright("\nDone! Textarea component installed.\n"));
   } catch (error) {
-    console.error(chalk.red("\nError installing textarea component:", error));
+    console.error(
+      chalk.redBright("\nError installing textarea component:", error)
+    );
   } finally {
     rl.close();
   }

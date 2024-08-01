@@ -40,14 +40,18 @@ async function installLabelComponent() {
     if (fs.existsSync(targetComponentPath)) {
       // ask the user to overwrite the component
       const answer = await askQuestion(
-        `${chalk.white("\nComponent label already exists.")} ${chalk.green(
-          "Would you like to overwrite?"
-        )} ${chalk.gray("» (y/N): ")}`
+        `${chalk.whiteBright(
+          "\nComponent label already exists."
+        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
+          "» (y/N): "
+        )}`
       );
 
       if (answer.toLowerCase() !== "y") {
         console.log(
-          chalk.blue("Skipped label. To overwrite, run the command again.\n")
+          chalk.blueBright(
+            "Skipped label. To overwrite, run the command again.\n"
+          )
         );
         rl.close();
         return;
@@ -60,7 +64,7 @@ async function installLabelComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.green("\nDone! Label component installed.\n"));
+    console.log(chalk.greenBright("\nDone! Label component installed.\n"));
 
     // install additional dependencies
     exec("npm install @radix-ui/react-label", (error, stdout, stderr) => {
@@ -72,7 +76,9 @@ async function installLabelComponent() {
       console.error(stderr);
     });
   } catch (error) {
-    console.error(chalk.red("\nError installing label component:", error));
+    console.error(
+      chalk.redBright("\nError installing label component:", error)
+    );
   } finally {
     rl.close();
   }

@@ -39,14 +39,18 @@ async function installCardComponent() {
     if (fs.existsSync(targetComponentPath)) {
       // ask the user to overwrite the component
       const answer = await askQuestion(
-        `${chalk.white("\nComponent card already exists.")} ${chalk.green(
-          "Would you like to overwrite?"
-        )} ${chalk.gray("» (y/N): ")}`
+        `${chalk.whiteBright(
+          "\nComponent card already exists."
+        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
+          "» (y/N): "
+        )}`
       );
 
       if (answer.toLowerCase() !== "y") {
         console.log(
-          chalk.blue("Skipped card. To overwrite, run the command again.\n")
+          chalk.blueBright(
+            "Skipped card. To overwrite, run the command again.\n"
+          )
         );
         rl.close();
         return;
@@ -59,9 +63,9 @@ async function installCardComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.green("\nDone! Card component installed.\n"));
+    console.log(chalk.greenBright("\nDone! Card component installed.\n"));
   } catch (error) {
-    console.error(chalk.red("\nError installing card component:", error));
+    console.error(chalk.redBright("\nError installing card component:", error));
   } finally {
     rl.close();
   }

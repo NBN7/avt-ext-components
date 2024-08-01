@@ -40,14 +40,18 @@ async function installDialogComponent() {
     if (fs.existsSync(targetComponentPath)) {
       // ask the user to overwrite the component
       const answer = await askQuestion(
-        `${chalk.white("\nComponent dialog already exists.")} ${chalk.green(
-          "Would you like to overwrite?"
-        )} ${chalk.gray("» (y/N): ")}`
+        `${chalk.whiteBright(
+          "\nComponent dialog already exists."
+        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
+          "» (y/N): "
+        )}`
       );
 
       if (answer.toLowerCase() !== "y") {
         console.log(
-          chalk.blue("Skipped dialog. To overwrite, run the command again.\n")
+          chalk.blueBright(
+            "Skipped dialog. To overwrite, run the command again.\n"
+          )
         );
         rl.close();
         return;
@@ -60,7 +64,7 @@ async function installDialogComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.green("\nDone! Dialog component installed.\n"));
+    console.log(chalk.greenBright("\nDone! Dialog component installed.\n"));
 
     // install additional dependencies
     exec("npm install @radix-ui/react-dialog", (error, stdout, stderr) => {
@@ -72,7 +76,9 @@ async function installDialogComponent() {
       console.error(stderr);
     });
   } catch (error) {
-    console.error(chalk.red("\nError installing dialog component:", error));
+    console.error(
+      chalk.redBright("\nError installing dialog component:", error)
+    );
   } finally {
     rl.close();
   }

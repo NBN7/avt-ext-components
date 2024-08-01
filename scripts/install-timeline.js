@@ -42,14 +42,18 @@ async function installTimelineComponent() {
     if (fs.existsSync(targetComponentPath)) {
       // ask the user to overwrite the component
       const answer = await askQuestion(
-        `${chalk.white("\nComponent timeline already exists.")} ${chalk.green(
-          "Would you like to overwrite?"
-        )} ${chalk.gray("» (y/N): ")}`
+        `${chalk.whiteBright(
+          "\nComponent timeline already exists."
+        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
+          "» (y/N): "
+        )}`
       );
 
       if (answer.toLowerCase() !== "y") {
         console.log(
-          chalk.blue("Skipped timeline. To overwrite, run the command again.\n")
+          chalk.blueBright(
+            "Skipped timeline. To overwrite, run the command again.\n"
+          )
         );
         rl.close();
         return;
@@ -62,9 +66,11 @@ async function installTimelineComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.green("\nDone! Timeline component installed.\n"));
+    console.log(chalk.greenBright("\nDone! Timeline component installed.\n"));
   } catch (error) {
-    console.error(chalk.red("\nError installing timeline component:", error));
+    console.error(
+      chalk.redBright("\nError installing timeline component:", error)
+    );
   } finally {
     rl.close();
   }

@@ -39,14 +39,18 @@ async function installBadgeComponent() {
     if (fs.existsSync(targetComponentPath)) {
       // ask the user to overwrite the component
       const answer = await askQuestion(
-        `${chalk.white("\nComponent badge already exists.")} ${chalk.green(
-          "Would you like to overwrite?"
-        )} ${chalk.gray("» (y/N): ")}`
+        `${chalk.whiteBright(
+          "\nComponent badge already exists."
+        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
+          "» (y/N): "
+        )}`
       );
 
       if (answer.toLowerCase() !== "y") {
         console.log(
-          chalk.blue("Skipped badge. To overwrite, run the command again.\n")
+          chalk.blueBright(
+            "Skipped badge. To overwrite, run the command again.\n"
+          )
         );
         rl.close();
         return;
@@ -59,9 +63,11 @@ async function installBadgeComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.green("\nDone! Badge component installed.\n"));
+    console.log(chalk.greenBright("\nDone! Badge component installed.\n"));
   } catch (error) {
-    console.error(chalk.red("\nError installing badge component:", error));
+    console.error(
+      chalk.redBright("\nError installing badge component:", error)
+    );
   } finally {
     rl.close();
   }
