@@ -42,6 +42,17 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { EllipsisVertical } from "lucide-react";
 
 const TIMELINE_ITEMS = [
   {
@@ -55,6 +66,30 @@ const TIMELINE_ITEMS = [
   {
     title: "Third item",
     description: "This is the third item of the timeline",
+  },
+];
+
+const TABLE_DATA = [
+  {
+    campo: "Campo 1",
+    lote: "Lote 1",
+    muestreo: "Muestreo 1",
+    fecha: "31/07/2024",
+    estado: "Finalizado",
+  },
+  {
+    campo: "Campo 2",
+    lote: "Lote 2",
+    muestreo: "Muestreo 2",
+    fecha: "30/07/2024",
+    estado: "Incompleto",
+  },
+  {
+    campo: "Campo 3",
+    lote: "Lote 3",
+    muestreo: "Muestreo 3",
+    fecha: "29/07/2024",
+    estado: "Sin datos",
   },
 ];
 
@@ -155,6 +190,43 @@ export const ComponentsSection = () => {
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
+
+      <Table>
+        <TableCaption>A list of your recent invoices.</TableCaption>
+        <TableHeader className="border-primary">
+          <TableRow>
+            <TableHead>Campo</TableHead>
+            <TableHead>Lote</TableHead>
+            <TableHead>Nombre del muestreo</TableHead>
+            <TableHead>Fecha</TableHead>
+            <TableHead>Estado</TableHead>
+            <TableHead>Acciones</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {TABLE_DATA.map((data, index) => {
+            const isEven = index % 2 === 0;
+
+            return (
+              <TableRow
+                key={index}
+                className={`${isEven ? "" : "bg-[#F1F5F8]"}`}
+              >
+                <TableCell>{data.campo}</TableCell>
+                <TableCell>{data.lote}</TableCell>
+                <TableCell>{data.muestreo}</TableCell>
+                <TableCell>{data.fecha}</TableCell>
+                <TableCell>{data.estado}</TableCell>
+                <TableCell>
+                  <Button size="icon" variant="ghost">
+                    <EllipsisVertical className="size-4 text-primary cursor-pointer" />
+                  </Button>
+                </TableCell>
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
     </div>
   );
 };
