@@ -210,7 +210,7 @@ export const ComponentsSection = () => {
             return (
               <TableRow
                 key={index}
-                className={`${isEven ? "" : "bg-[#F1F5F8]"}`}
+                className={`${isEven ? "" : "bg-primary/10"}`}
               >
                 <TableCell>{data.campo}</TableCell>
                 <TableCell>{data.lote}</TableCell>
