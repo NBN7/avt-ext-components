@@ -1,6 +1,6 @@
 {
   "name": "avt-ext-components",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "bin": {
     "button": "./scripts/install-button.js",
     "input": "./scripts/install-input.js",
@@ -14,6 +14,7 @@
     "switch": "./scripts/install-switch.js",
     "textarea": "./scripts/install-textarea.js",
     "tooltip": "./scripts/install-tooltip.js",
+    "table": "./scripts/install-table.js",
     "show": "./scripts/show-components.js"
   },
   "type": "module",
