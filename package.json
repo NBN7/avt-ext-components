@@ -1,6 +1,6 @@
 {
   "name": "avt-ext-components",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "bin": {
     "button": "./scripts/install-button.js",
     "input": "./scripts/install-input.js",
@@ -28,6 +28,7 @@
     "@fontsource-variable/open-sans": "^5.0.29",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-dropdown-menu": "^2.1.1",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-separator": "^1.1.0",
