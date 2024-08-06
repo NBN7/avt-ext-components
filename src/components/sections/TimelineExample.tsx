@@ -1,4 +1,4 @@
-import { Timeline } from '../ui/timeline';
+import { Timeline } from '@/components/ui/timeline';
 
 const TIMELINE_ITEMS = [
   {

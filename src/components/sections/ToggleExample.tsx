@@ -1,6 +1,6 @@
-import { Checkbox } from '../ui/checkbox';
-import { Label } from '../ui/label';
-import { Switch } from '../ui/switch';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Label } from '@/components/ui/label';
+import { Switch } from '@/components/ui/switch';
 
 export const ToggleExample = () => {
   return (
