@@ -10,7 +10,7 @@ import {
 
 export const CardExample = () => {
   return (
-    <Card className="sm:w-[350px]">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>Web Development</CardTitle>
         <CardDescription>

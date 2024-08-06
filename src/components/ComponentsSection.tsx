@@ -11,7 +11,7 @@ import { Separator } from '@/components/ui/separator';
 export const ComponentsSection = () => {
   return (
     <div className="mt-8 flex min-h-screen w-full flex-col items-center rounded-lg bg-white p-4 text-black">
-      <div className="flex flex-col gap-6 sm:max-w-2xl">
+      <div className="w-full flex flex-col gap-6 sm:max-w-2xl">
         <InputsExample />
 
         <Separator />
