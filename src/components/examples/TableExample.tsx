@@ -14,25 +14,25 @@ import { EllipsisVertical } from 'lucide-react';
 export const TableExample = () => {
   const TABLE_DATA = [
     {
-      campo: 'Campo 1',
+      field: 'Field 1',
       lote: 'Lote 1',
-      muestreo: 'Muestreo 1',
-      fecha: '31/07/2024',
-      estado: 'Finalizado',
+      sampling: 'Sampling 1',
+      date: '31/07/2024',
+      status: 'Finished',
     },
     {
-      campo: 'Campo 2',
+      field: 'Field 2',
       lote: 'Lote 2',
-      muestreo: 'Muestreo 2',
-      fecha: '30/07/2024',
-      estado: 'Incompleto',
+      sampling: 'Sampling 2',
+      date: '30/07/2024',
+      status: 'Incomplete',
     },
     {
-      campo: 'Campo 3',
+      field: 'Field 3',
       lote: 'Lote 3',
-      muestreo: 'Muestreo 3',
-      fecha: '29/07/2024',
-      estado: 'Sin datos',
+      sampling: 'Sampling 3',
+      date: '29/07/2024',
+      status: 'No data',
     },
   ];
 
@@ -41,12 +41,12 @@ export const TableExample = () => {
       <TableCaption>A list of your recent invoices.</TableCaption>
       <TableHeader className="border-primary">
         <TableRow>
-          <TableHead>Campo</TableHead>
+          <TableHead>Field</TableHead>
           <TableHead>Lote</TableHead>
-          <TableHead>Nombre del muestreo</TableHead>
-          <TableHead>Fecha</TableHead>
-          <TableHead>Estado</TableHead>
-          <TableHead>Acciones</TableHead>
+          <TableHead>Sampling</TableHead>
+          <TableHead>Date</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Actions</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -55,11 +55,11 @@ export const TableExample = () => {
 
           return (
             <TableRow key={index} className={`${isEven ? '' : 'bg-primary/5'}`}>
-              <TableCell>{data.campo}</TableCell>
+              <TableCell>{data.field}</TableCell>
               <TableCell>{data.lote}</TableCell>
-              <TableCell>{data.muestreo}</TableCell>
-              <TableCell>{data.fecha}</TableCell>
-              <TableCell>{data.estado}</TableCell>
+              <TableCell>{data.sampling}</TableCell>
+              <TableCell>{data.date}</TableCell>
+              <TableCell>{data.status}</TableCell>
               <TableCell>
                 <Button variant="ghost" className="size-8 p-0">
                   <EllipsisVertical className="size-4 cursor-pointer text-primary" />
