@@ -1,12 +1,12 @@
-import { Separator } from '@/components/ui/separator';
-import { TableExample } from './sections/TableExample';
+import { TableExample } from '@/components/examples/TableExample';
+import { InputsExample } from '@/components/examples/InputsExample';
+import { ToggleExample } from '@/components/examples/ToggleExample';
+import { ButtonsExample } from '@/components/examples/ButtonsExample';
+import { BadgesExample } from '@/components/examples/BadgesExample';
+import { CardExample } from '@/components/examples/CardExample';
+import { TimelineExample } from '@/components/examples/TimelineExample';
 
-import { InputsExample } from './sections/InputsExample';
-import { ToggleExample } from './sections/ToggleExample';
-import { ButtonsExample } from './sections/ButtonsExample';
-import { BadgesExample } from './sections/BadgesExample';
-import { CardExample } from './sections/CardExample';
-import { TimelineExample } from './sections/TimelineExample';
+import { Separator } from '@/components/ui/separator';
 
 export const ComponentsSection = () => {
   return (
