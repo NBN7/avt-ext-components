@@ -61,7 +61,7 @@ export const TableExample = () => {
               <TableCell>{data.fecha}</TableCell>
               <TableCell>{data.estado}</TableCell>
               <TableCell>
-                <Button size="icon" variant="ghost">
+                <Button variant="ghost" className="size-8 p-0">
                   <EllipsisVertical className="size-4 text-primary cursor-pointer" />
                 </Button>
               </TableCell>

@@ -12,7 +12,7 @@ export const DropdownMenuExample = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="md:w-40">Open</Button>
+        <Button className="md:w-40">Dropdown Menu</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
