@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 
-export const InputExample = () => {
+export const InputsExample = () => {
   return (
     <div className="flex flex-col gap-4">
       <Input placeholder="Example" className="sm:max-w-xs" />
