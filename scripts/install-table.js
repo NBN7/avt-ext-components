@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import fs from "fs-extra";
-import path from "path";
-import { fileURLToPath } from "url";
-import readline from "readline";
-import chalk from "chalk";
+import fs from 'fs-extra';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import readline from 'readline';
+import chalk from 'chalk';
 
 // get the filename of the current module
 const __filename = fileURLToPath(import.meta.url);
@@ -25,13 +25,13 @@ function askQuestion(question) {
 
 async function installTableComponent() {
   // path to the source component file
-  const sourcePath = path.resolve(__dirname, "../src/components/ui/table.tsx");
+  const sourcePath = path.resolve(__dirname, '../src/components/ui/table.tsx');
 
   // destination path for the component
   const targetPath = process.cwd();
   const targetComponentPath = path.join(
     targetPath,
-    "src/components/ui/table.tsx"
+    'src/components/ui/table.tsx'
   );
 
   try {
@@ -40,16 +40,16 @@ async function installTableComponent() {
       // ask the user to overwrite the component
       const answer = await askQuestion(
         `${chalk.whiteBright(
-          "\nComponent table already exists."
-        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
-          "» (y/N): "
+          '\nComponent table already exists.'
+        )} ${chalk.greenBright('Would you like to overwrite?')} ${chalk.gray(
+          '» (y/N): '
         )}`
       );
 
-      if (answer.toLowerCase() !== "y") {
+      if (answer.toLowerCase() !== 'y') {
         console.log(
           chalk.blueBright(
-            "Skipped table. To overwrite, run the command again.\n"
+            'Skipped table. To overwrite, run the command again.\n'
           )
         );
         rl.close();
@@ -63,10 +63,10 @@ async function installTableComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.greenBright("\nDone! Table component installed.\n"));
+    console.log(chalk.greenBright('\nDone! Table component installed.\n'));
   } catch (error) {
     console.error(
-      chalk.redBright("\nError installing table component:", error)
+      chalk.redBright('\nError installing table component:', error)
     );
   } finally {
     rl.close();

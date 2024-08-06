@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import fs from "fs-extra";
-import path from "path";
-import { fileURLToPath } from "url";
-import readline from "readline";
-import chalk from "chalk";
+import fs from 'fs-extra';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import readline from 'readline';
+import chalk from 'chalk';
 
 // get the filename of the current module
 const __filename = fileURLToPath(import.meta.url);
@@ -27,14 +27,14 @@ async function installTextareaComponent() {
   // path to the source component file
   const sourcePath = path.resolve(
     __dirname,
-    "../src/components/ui/textarea.tsx"
+    '../src/components/ui/textarea.tsx'
   );
 
   // destination path for the component
   const targetPath = process.cwd();
   const targetComponentPath = path.join(
     targetPath,
-    "src/components/ui/textarea.tsx"
+    'src/components/ui/textarea.tsx'
   );
 
   try {
@@ -43,16 +43,16 @@ async function installTextareaComponent() {
       // ask the user to overwrite the component
       const answer = await askQuestion(
         `${chalk.whiteBright(
-          "\nComponent textarea already exists."
-        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
-          "» (y/N): "
+          '\nComponent textarea already exists.'
+        )} ${chalk.greenBright('Would you like to overwrite?')} ${chalk.gray(
+          '» (y/N): '
         )}`
       );
 
-      if (answer.toLowerCase() !== "y") {
+      if (answer.toLowerCase() !== 'y') {
         console.log(
           chalk.blueBright(
-            "Skipped textarea. To overwrite, run the command again.\n"
+            'Skipped textarea. To overwrite, run the command again.\n'
           )
         );
         rl.close();
@@ -66,10 +66,10 @@ async function installTextareaComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.greenBright("\nDone! Textarea component installed.\n"));
+    console.log(chalk.greenBright('\nDone! Textarea component installed.\n'));
   } catch (error) {
     console.error(
-      chalk.redBright("\nError installing textarea component:", error)
+      chalk.redBright('\nError installing textarea component:', error)
     );
   } finally {
     rl.close();

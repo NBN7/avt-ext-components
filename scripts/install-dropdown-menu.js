@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-import fs from "fs-extra";
-import path from "path";
-import { fileURLToPath } from "url";
-import readline from "readline";
-import chalk from "chalk";
-import { exec } from "child_process";
+import fs from 'fs-extra';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import readline from 'readline';
+import chalk from 'chalk';
+import { exec } from 'child_process';
 
 // get the filename of the current module
 const __filename = fileURLToPath(import.meta.url);
@@ -28,14 +28,14 @@ async function installDropdownMenuComponent() {
   // path to the source component file
   const sourcePath = path.resolve(
     __dirname,
-    "../src/components/ui/dropdown-menu.tsx"
+    '../src/components/ui/dropdown-menu.tsx'
   );
 
   // destination path for the component
   const targetPath = process.cwd();
   const targetComponentPath = path.join(
     targetPath,
-    "src/components/ui/dropdown-menu.tsx"
+    'src/components/ui/dropdown-menu.tsx'
   );
 
   try {
@@ -44,16 +44,16 @@ async function installDropdownMenuComponent() {
       // ask the user to overwrite the component
       const answer = await askQuestion(
         `${chalk.whiteBright(
-          "\nComponent dropdown menu already exists."
-        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
-          "» (y/N): "
+          '\nComponent dropdown menu already exists.'
+        )} ${chalk.greenBright('Would you like to overwrite?')} ${chalk.gray(
+          '» (y/N): '
         )}`
       );
 
-      if (answer.toLowerCase() !== "y") {
+      if (answer.toLowerCase() !== 'y') {
         console.log(
           chalk.blueBright(
-            "Skipped dropdown menu. To overwrite, run the command again.\n"
+            'Skipped dropdown menu. To overwrite, run the command again.\n'
           )
         );
         rl.close();
@@ -68,12 +68,12 @@ async function installDropdownMenuComponent() {
     await fs.copyFile(sourcePath, targetComponentPath);
 
     console.log(
-      chalk.greenBright("\nDone! Dropdown menu component installed.\n")
+      chalk.greenBright('\nDone! Dropdown menu component installed.\n')
     );
 
     // install additional dependencies
     exec(
-      "npm install @radix-ui/react-dropdown-menu",
+      'npm install @radix-ui/react-dropdown-menu',
       (error, stdout, stderr) => {
         if (error) {
           console.error(`Error installing dependencies: ${error}`);
@@ -85,7 +85,7 @@ async function installDropdownMenuComponent() {
     );
   } catch (error) {
     console.error(
-      chalk.redBright("\nError installing dropdown menu component:", error)
+      chalk.redBright('\nError installing dropdown menu component:', error)
     );
   } finally {
     rl.close();

@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import fs from "fs-extra";
-import path from "path";
-import { fileURLToPath } from "url";
-import readline from "readline";
-import chalk from "chalk";
+import fs from 'fs-extra';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import readline from 'readline';
+import chalk from 'chalk';
 
 // get the filename of the current module
 const __filename = fileURLToPath(import.meta.url);
@@ -25,13 +25,13 @@ function askQuestion(question) {
 
 async function installButtonComponent() {
   // path to the source component file
-  const sourcePath = path.resolve(__dirname, "../src/components/ui/button.tsx");
+  const sourcePath = path.resolve(__dirname, '../src/components/ui/button.tsx');
 
   // destination path for the component
   const targetPath = process.cwd();
   const targetComponentPath = path.join(
     targetPath,
-    "src/components/ui/button.tsx"
+    'src/components/ui/button.tsx'
   );
 
   try {
@@ -40,16 +40,16 @@ async function installButtonComponent() {
       // ask the user to overwrite the component
       const answer = await askQuestion(
         `${chalk.whiteBright(
-          "\nComponent button already exists."
-        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
-          "» (y/N): "
+          '\nComponent button already exists.'
+        )} ${chalk.greenBright('Would you like to overwrite?')} ${chalk.gray(
+          '» (y/N): '
         )}`
       );
 
-      if (answer.toLowerCase() !== "y") {
+      if (answer.toLowerCase() !== 'y') {
         console.log(
           chalk.blueBright(
-            "Skipped button. To overwrite, run the command again.\n"
+            'Skipped button. To overwrite, run the command again.\n'
           )
         );
         rl.close();
@@ -63,10 +63,10 @@ async function installButtonComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.greenBright("\nDone! Button component installed.\n"));
+    console.log(chalk.greenBright('\nDone! Button component installed.\n'));
   } catch (error) {
     console.error(
-      chalk.redBright("\nError installing button component:", error)
+      chalk.redBright('\nError installing button component:', error)
     );
   } finally {
     rl.close();

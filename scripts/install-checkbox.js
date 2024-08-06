@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-import fs from "fs-extra";
-import path from "path";
-import { fileURLToPath } from "url";
-import readline from "readline";
-import chalk from "chalk";
-import { exec } from "child_process";
+import fs from 'fs-extra';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import readline from 'readline';
+import chalk from 'chalk';
+import { exec } from 'child_process';
 
 // get the filename of the current module
 const __filename = fileURLToPath(import.meta.url);
@@ -28,14 +28,14 @@ async function installCheckboxComponent() {
   // path to the source component file
   const sourcePath = path.resolve(
     __dirname,
-    "../src/components/ui/checkbox.tsx"
+    '../src/components/ui/checkbox.tsx'
   );
 
   // destination path for the component
   const targetPath = process.cwd();
   const targetComponentPath = path.join(
     targetPath,
-    "src/components/ui/checkbox.tsx"
+    'src/components/ui/checkbox.tsx'
   );
 
   try {
@@ -44,16 +44,16 @@ async function installCheckboxComponent() {
       // ask the user to overwrite the component
       const answer = await askQuestion(
         `${chalk.whiteBright(
-          "\nComponent checkbox already exists."
-        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
-          "» (y/N): "
+          '\nComponent checkbox already exists.'
+        )} ${chalk.greenBright('Would you like to overwrite?')} ${chalk.gray(
+          '» (y/N): '
         )}`
       );
 
-      if (answer.toLowerCase() !== "y") {
+      if (answer.toLowerCase() !== 'y') {
         console.log(
           chalk.blueBright(
-            "Skipped checkbox. To overwrite, run the command again.\n"
+            'Skipped checkbox. To overwrite, run the command again.\n'
           )
         );
         rl.close();
@@ -67,10 +67,10 @@ async function installCheckboxComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.greenBright("\nDone! Checkbox component installed.\n"));
+    console.log(chalk.greenBright('\nDone! Checkbox component installed.\n'));
 
     // install additional dependencies
-    exec("npm install @radix-ui/react-checkbox", (error, stdout, stderr) => {
+    exec('npm install @radix-ui/react-checkbox', (error, stdout, stderr) => {
       if (error) {
         console.error(`Error installing dependencies: ${error}`);
         return;
@@ -80,7 +80,7 @@ async function installCheckboxComponent() {
     });
   } catch (error) {
     console.error(
-      chalk.redBright("\nError installing checkbox component:", error)
+      chalk.redBright('\nError installing checkbox component:', error)
     );
   } finally {
     rl.close();

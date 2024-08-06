@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-import fs from "fs-extra";
-import path from "path";
-import { fileURLToPath } from "url";
-import readline from "readline";
-import chalk from "chalk";
-import { exec } from "child_process";
+import fs from 'fs-extra';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import readline from 'readline';
+import chalk from 'chalk';
+import { exec } from 'child_process';
 
 // get the filename of the current module
 const __filename = fileURLToPath(import.meta.url);
@@ -26,13 +26,13 @@ function askQuestion(question) {
 
 async function installSelectComponent() {
   // path to the source component file
-  const sourcePath = path.resolve(__dirname, "../src/components/ui/select.tsx");
+  const sourcePath = path.resolve(__dirname, '../src/components/ui/select.tsx');
 
   // destination path for the component
   const targetPath = process.cwd();
   const targetComponentPath = path.join(
     targetPath,
-    "src/components/ui/select.tsx"
+    'src/components/ui/select.tsx'
   );
 
   try {
@@ -41,16 +41,16 @@ async function installSelectComponent() {
       // ask the user to overwrite the component
       const answer = await askQuestion(
         `${chalk.whiteBright(
-          "\nComponent select already exists."
-        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
-          "» (y/N): "
+          '\nComponent select already exists.'
+        )} ${chalk.greenBright('Would you like to overwrite?')} ${chalk.gray(
+          '» (y/N): '
         )}`
       );
 
-      if (answer.toLowerCase() !== "y") {
+      if (answer.toLowerCase() !== 'y') {
         console.log(
           chalk.blueBright(
-            "Skipped select. To overwrite, run the command again.\n"
+            'Skipped select. To overwrite, run the command again.\n'
           )
         );
         rl.close();
@@ -64,10 +64,10 @@ async function installSelectComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.greenBright("\nDone! Select component installed.\n"));
+    console.log(chalk.greenBright('\nDone! Select component installed.\n'));
 
     // install additional dependencies
-    exec("npm install @radix-ui/react-select", (error, stdout, stderr) => {
+    exec('npm install @radix-ui/react-select', (error, stdout, stderr) => {
       if (error) {
         console.error(`Error installing dependencies: ${error}`);
         return;
@@ -77,7 +77,7 @@ async function installSelectComponent() {
     });
   } catch (error) {
     console.error(
-      chalk.redBright("\nError installing select component:", error)
+      chalk.redBright('\nError installing select component:', error)
     );
   } finally {
     rl.close();

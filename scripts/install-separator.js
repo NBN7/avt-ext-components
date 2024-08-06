@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-import fs from "fs-extra";
-import path from "path";
-import { fileURLToPath } from "url";
-import readline from "readline";
-import chalk from "chalk";
-import { exec } from "child_process";
+import fs from 'fs-extra';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import readline from 'readline';
+import chalk from 'chalk';
+import { exec } from 'child_process';
 
 // get the filename of the current module
 const __filename = fileURLToPath(import.meta.url);
@@ -28,14 +28,14 @@ async function installSeparatorComponent() {
   // path to the source component file
   const sourcePath = path.resolve(
     __dirname,
-    "../src/components/ui/separator.tsx"
+    '../src/components/ui/separator.tsx'
   );
 
   // destination path for the component
   const targetPath = process.cwd();
   const targetComponentPath = path.join(
     targetPath,
-    "src/components/ui/separator.tsx"
+    'src/components/ui/separator.tsx'
   );
 
   try {
@@ -44,16 +44,16 @@ async function installSeparatorComponent() {
       // ask the user to overwrite the component
       const answer = await askQuestion(
         `${chalk.whiteBright(
-          "\nComponent separator already exists."
-        )} ${chalk.greenBright("Would you like to overwrite?")} ${chalk.gray(
-          "» (y/N): "
+          '\nComponent separator already exists.'
+        )} ${chalk.greenBright('Would you like to overwrite?')} ${chalk.gray(
+          '» (y/N): '
         )}`
       );
 
-      if (answer.toLowerCase() !== "y") {
+      if (answer.toLowerCase() !== 'y') {
         console.log(
           chalk.blueBright(
-            "Skipped separator. To overwrite, run the command again.\n"
+            'Skipped separator. To overwrite, run the command again.\n'
           )
         );
         rl.close();
@@ -67,10 +67,10 @@ async function installSeparatorComponent() {
     // copy the file to the destination
     await fs.copyFile(sourcePath, targetComponentPath);
 
-    console.log(chalk.greenBright("\nDone! Separator component installed.\n"));
+    console.log(chalk.greenBright('\nDone! Separator component installed.\n'));
 
     // install additional dependencies
-    exec("npm install @radix-ui/react-separator", (error, stdout, stderr) => {
+    exec('npm install @radix-ui/react-separator', (error, stdout, stderr) => {
       if (error) {
         console.error(`Error installing dependencies: ${error}`);
         return;
@@ -80,7 +80,7 @@ async function installSeparatorComponent() {
     });
   } catch (error) {
     console.error(
-      chalk.redBright("\nError installing separator component:", error)
+      chalk.redBright('\nError installing separator component:', error)
     );
   } finally {
     rl.close();

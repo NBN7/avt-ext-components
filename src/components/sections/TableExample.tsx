@@ -7,32 +7,32 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
-import { EllipsisVertical } from "lucide-react";
+} from '@/components/ui/table';
+import { Button } from '@/components/ui/button';
+import { EllipsisVertical } from 'lucide-react';
 
 export const TableExample = () => {
   const TABLE_DATA = [
     {
-      campo: "Campo 1",
-      lote: "Lote 1",
-      muestreo: "Muestreo 1",
-      fecha: "31/07/2024",
-      estado: "Finalizado",
+      campo: 'Campo 1',
+      lote: 'Lote 1',
+      muestreo: 'Muestreo 1',
+      fecha: '31/07/2024',
+      estado: 'Finalizado',
     },
     {
-      campo: "Campo 2",
-      lote: "Lote 2",
-      muestreo: "Muestreo 2",
-      fecha: "30/07/2024",
-      estado: "Incompleto",
+      campo: 'Campo 2',
+      lote: 'Lote 2',
+      muestreo: 'Muestreo 2',
+      fecha: '30/07/2024',
+      estado: 'Incompleto',
     },
     {
-      campo: "Campo 3",
-      lote: "Lote 3",
-      muestreo: "Muestreo 3",
-      fecha: "29/07/2024",
-      estado: "Sin datos",
+      campo: 'Campo 3',
+      lote: 'Lote 3',
+      muestreo: 'Muestreo 3',
+      fecha: '29/07/2024',
+      estado: 'Sin datos',
     },
   ];
 
@@ -54,7 +54,7 @@ export const TableExample = () => {
           const isEven = index % 2 === 0;
 
           return (
-            <TableRow key={index} className={`${isEven ? "" : "bg-primary/5"}`}>
+            <TableRow key={index} className={`${isEven ? '' : 'bg-primary/5'}`}>
               <TableCell>{data.campo}</TableCell>
               <TableCell>{data.lote}</TableCell>
               <TableCell>{data.muestreo}</TableCell>
@@ -62,7 +62,7 @@ export const TableExample = () => {
               <TableCell>{data.estado}</TableCell>
               <TableCell>
                 <Button variant="ghost" className="size-8 p-0">
-                  <EllipsisVertical className="size-4 text-primary cursor-pointer" />
+                  <EllipsisVertical className="size-4 cursor-pointer text-primary" />
                 </Button>
               </TableCell>
             </TableRow>

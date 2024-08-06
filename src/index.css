@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    font-family: "Open Sans Variable", sans-serif;
+    font-family: 'Open Sans Variable', sans-serif;
     @apply bg-black font-normal text-white;
   }
 }
