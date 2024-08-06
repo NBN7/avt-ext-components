@@ -1,6 +1,6 @@
 {
   "name": "avt-ext-components",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "bin": {
     "button": "./scripts/install-button.js",
     "input": "./scripts/install-input.js",
