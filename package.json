@@ -16,6 +16,7 @@
     "tooltip": "./scripts/install-tooltip.js",
     "table": "./scripts/install-table.js",
     "dropdown-menu": "./scripts/install-dropdown-menu.js",
+    "accordion": "./scripts/install-accordion.js",
     "show": "./scripts/show-components.js"
   },
   "type": "module",
@@ -28,6 +29,7 @@
   },
   "dependencies": {
     "@fontsource-variable/open-sans": "^5.0.29",
+    "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-dropdown-menu": "^2.1.1",

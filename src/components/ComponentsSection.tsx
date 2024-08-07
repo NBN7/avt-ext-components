@@ -8,6 +8,7 @@ import { TimelineExample } from '@/components/examples/TimelineExample';
 import { UserInteractiveExample } from '@/components/examples/UserInteractiveExample';
 
 import { Separator } from '@/components/ui/separator';
+import { AccordionExample } from './examples/AccordionExample';
 
 export const ComponentsSection = () => {
   return (
@@ -38,6 +39,7 @@ export const ComponentsSection = () => {
 
         <Separator />
 
+        <AccordionExample />
         <TableExample />
 
         <Separator />
