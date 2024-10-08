@@ -15,6 +15,8 @@ export const ComponentsSection = () => {
   return (
     <div className="mt-8 flex min-h-screen w-full flex-col items-center rounded-lg bg-white p-4 text-black">
       <div className="flex w-full flex-col gap-6 sm:max-w-2xl">
+        <ProgressBarExample />
+        <Separator />
         <InputsExample />
         <Separator />
         <TogglesExample />
@@ -31,7 +33,6 @@ export const ComponentsSection = () => {
         <AccordionExample />
         <TableExample />
         <Separator />
-        <ProgressBarExample />
       </div>
     </div>
   );
