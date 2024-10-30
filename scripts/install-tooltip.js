@@ -4,7 +4,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import readline from 'readline';
-import chalk from '';
+import chalk from 'chalk';
 import { exec } from 'child_process';
 
 // get the filename of the current module
@@ -26,10 +26,7 @@ function askQuestion(question) {
 
 async function installTooltipComponent() {
   // path to the source component file
-  const sourcePath = path.resolve(
-    __dirname,
-    '../src/components/ui/tooltip.tsx'
-  );
+  const sourcePath = path.resolve(__dirname, '../src/components/ui/tooltip.tsx');
 
   // destination path for the component
   const targetPath = process.cwd();

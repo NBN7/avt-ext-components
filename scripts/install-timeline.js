@@ -5,6 +5,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import readline from 'readline';
 import chalk from 'chalk';
+import { exec } from 'child_process';
 
 // get the filename of the current module
 const __filename = fileURLToPath(import.meta.url);
@@ -67,6 +68,16 @@ async function installTimelineComponent() {
     await fs.copyFile(sourcePath, targetComponentPath);
 
     console.log(chalk.greenBright('\nDone! Timeline component installed.\n'));
+
+    // install additional dependencies
+    exec('npm install @radix-ui/react-timeline', (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error installing dependencies: ${error}`);
+        return;
+      }
+      console.log(stdout);
+      console.error(stderr);
+    });
   } catch (error) {
     console.error(
       chalk.redBright('\nError installing timeline component:', error)
